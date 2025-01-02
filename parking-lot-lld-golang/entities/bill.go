@@ -13,3 +13,12 @@ type Bill struct {
 	Gate       *Gate
 	BillStatus enums.Status
 }
+
+func NewBill(id int, ticket *Ticket, gate *Gate, exitTime time.Time) *Bill {
+	return &Bill{
+		Id:       id,
+		Ticket:   ticket,
+		ExitTime: exitTime,
+		Gate:     gate,
+	}
+}

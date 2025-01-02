@@ -9,3 +9,11 @@ type Payment struct {
 	PaymentMode   enums.PaymentMode
 	Bill          *Bill
 }
+
+func NewPayment(id int, amount float64, bill *Bill) *Payment {
+	return &Payment{
+		Id:     id,
+		Amount: amount,
+		Bill:   bill,
+	}
+}

@@ -9,3 +9,13 @@ type Ticket struct {
 	Gate        *Gate
 	EntryTime   time.Time
 }
+
+func NewTicket(id int, parkingSpot *ParkingSpot, vehicle *Vehicle, gate *Gate, entryTime time.Time) *Ticket {
+	return &Ticket{
+		Id:          id,
+		ParkingSpot: parkingSpot,
+		Vehicle:     vehicle,
+		Gate:        gate,
+		EntryTime:   entryTime,
+	}
+}

@@ -1,6 +1,15 @@
 package entities
 
-import "main/enums"
+import (
+	"main/enums"
+	"sync"
+)
+
+// This is a singleton and it is instantiated only once per run. The same object is used across the all goroutines
+var (
+	parkingLotInstance *ParkingLot
+	once               sync.Once
+)
 
 type ParkingLot struct {
 	Id                int
@@ -11,4 +20,15 @@ type ParkingLot struct {
 	Availability      enums.Availability
 	TotalCapacity     int
 	AvailableCapacity int
+}
+
+func NewParkingLot(id int, name string, address string) *ParkingLot {
+	once.Do(func() {
+		parkingLotInstance = &ParkingLot{
+			Id:      id,
+			Name:    name,
+			Address: address,
+		}
+	})
+	return parkingLotInstance
 }
