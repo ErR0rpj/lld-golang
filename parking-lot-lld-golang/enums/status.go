@@ -7,3 +7,13 @@ const (
 	PENDING
 	UNSUCCESSFUL
 )
+
+func (a Status) String() string {
+	switch a {
+	case SUCCESSFUL:
+		return "Successful"
+	case PENDING:
+		return "Pending"
+	}
+	return "Unsuccessful"
+}

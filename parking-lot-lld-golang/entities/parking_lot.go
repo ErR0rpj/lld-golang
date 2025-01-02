@@ -25,9 +25,10 @@ type ParkingLot struct {
 func NewParkingLot(id int, name string, address string) *ParkingLot {
 	once.Do(func() {
 		parkingLotInstance = &ParkingLot{
-			Id:      id,
-			Name:    name,
-			Address: address,
+			Id:           id,
+			Name:         name,
+			Address:      address,
+			Availability: enums.AVAILABLE,
 		}
 	})
 	return parkingLotInstance

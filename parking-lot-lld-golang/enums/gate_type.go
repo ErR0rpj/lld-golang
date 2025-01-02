@@ -3,6 +3,19 @@ package enums
 type GateType int
 
 const (
-	ENTRY GateType = iota
+	BOTH GateType = iota
+	ENTRY
 	EXIT
 )
+
+func (a GateType) String() string {
+	switch a {
+	case ENTRY:
+		return "Entry"
+	case EXIT:
+		return "Exit"
+	case BOTH:
+		return "Both"
+	}
+	return ""
+}

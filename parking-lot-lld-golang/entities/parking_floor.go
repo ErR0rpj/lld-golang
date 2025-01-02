@@ -12,6 +12,7 @@ type ParkingFloor struct {
 
 func NewParkingFloor(id int) *ParkingFloor {
 	return &ParkingFloor{
-		Id: id,
+		Id:           id,
+		Availability: enums.AVAILABLE,
 	}
 }
